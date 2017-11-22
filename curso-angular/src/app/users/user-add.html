@@ -1,0 +1,23 @@
+<h1>{{title}}</h1>
+
+<form #formUsuario="ngForm" (ngSubmit)="OnSubmit()">
+	 <label>Nombre:</label>
+	 <p>
+	 	<input type="text" name="nombre" #nombre="ngModel" required [(ngModel)]="user.nombre" />
+	 	<span *ngIf="nombre.touched && !nombre.valid"> El campo Nombre no es correcto !!</span>
+	 </p>
+	  <label>Apellido:</label>
+	 <p>
+	 	<input type="text" name="apellido" #apellido="ngModel" required  [(ngModel)]="user.apellido" />
+        <span *ngIf="apellido.touched && !apellido.valid"> El campo Apellido no es correcto !!</span>
+	 </p>
+	  <label>Password:</label>
+	 <p>
+	 	<input type="password" name="password" #password="ngModel" required [(ngModel)]="user.password" />
+	 	<span *ngIf="password.touched && !password.valid"> El campo Password no es correcto !!</span>
+	 </p>
+
+	 <input type="submit" value="Enviar">
+	
+
+</form>

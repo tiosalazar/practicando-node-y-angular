@@ -1,0 +1,28 @@
+<div class="loading" *ngIf="loading">
+	
+	<img src="../../assets/images/loader.gif" />
+</div>
+
+
+<ul id="favotitos-list" *ngIf="users">
+	<li *ngFor="let user of users">
+		<h4> {{user.nombre}}</h4>
+		<h4> {{user.apellido}}</h4>
+		<a href="" [routerLink]="['/usuario',user._id ]"> Ver Usuario</a>
+		<a href="" [routerLink]="['/usuario-editar',user._id ]"> editar Usuario</a>
+		<a  (click)="onBorrarConfirmar(user._id)" > Borrar Usuario</a>
+		<div class="seguro" *ngIf="confirmado == user._id"> 
+			<p>
+			<strong>Seguro que deseas borrar el usuario</strong>
+			</p>
+		   <a (click)="onBorrarUser(user._id)" >
+		   	 Eliminar
+		   </a>
+		   <a (click)="onCanchearConfirmar(user._id)" >
+		   	  Cancelar
+		   </a>
+
+		</div>
+	</li>
+</ul>
+
